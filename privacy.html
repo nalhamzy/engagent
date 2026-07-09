@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — Engagent</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo">⚡</div>
+  <div><h1>Privacy Policy</h1><p style="font-size:13px">Engagent · Effective 2026-07-09</p></div>
+</header>
+<nav><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
+
+<div class="card">
+<p>Engagent ("the app") is operated by <strong>Ideal Intelligence</strong>, Muscat, Oman. This policy explains what data we process when you connect your Instagram professional account, and how to delete it.</p>
+</div>
+
+<h2>Data we collect</h2>
+<ul>
+  <li><strong>App account</strong> — an anonymous or email-based Firebase account identifier; your email address if you create an account.</li>
+  <li><strong>Instagram connection</strong> — your Instagram professional account ID, username, and account type, plus an access token granted through Meta's official login (stored server-side, never on your device or shared).</li>
+  <li><strong>Posts &amp; metrics</strong> — media captions, thumbnails, and performance metrics (reach, likes, comments, saves, shares) fetched from the Instagram API.</li>
+  <li><strong>Comments</strong> — comment text, commenter usernames and timestamps on your posts, plus the categories, sentiment and reply drafts our system generates for them.</li>
+  <li><strong>Business Brain</strong> — the business facts you enter (location, hours, prices, FAQ, brand voice) used to ground AI replies.</li>
+  <li><strong>Activity log</strong> — a record of actions taken in your account (analyzed, replied, hidden, escalated) for your own audit trail.</li>
+</ul>
+
+<h2>How we use it</h2>
+<ul>
+  <li>To categorize comments, generate insight reports, and draft or send replies you configure — the core service.</li>
+  <li>Comment text and your Business Brain content are processed by <strong>Anthropic's Claude API</strong> to generate classifications, drafts and reports. Anthropic does not train on this API data.</li>
+  <li>Data is stored in <strong>Google Firebase</strong> (Firestore / Cloud Functions, us-central1).</li>
+  <li>We use Firebase Analytics and Crashlytics for app stability and aggregate usage. We do <strong>not</strong> sell your data or use it for advertising.</li>
+</ul>
+
+<h2>Data retention &amp; deletion</h2>
+<ul>
+  <li>Data is retained while your account is connected.</li>
+  <li><strong>In-app deletion:</strong> Settings → Delete Account permanently removes your connection, posts, comments, Business Brain, activity log and tokens.</li>
+  <li><strong>Meta data-deletion callback:</strong> removing the app from your Instagram settings triggers Meta's data-deletion request, which we honor automatically. Status of a deletion request can be checked at <a href="deletion-status.html">deletion-status</a> using the confirmation code returned to Meta.</li>
+  <li><strong>By email:</strong> <a href="mailto:nalhamzy@gmail.com">nalhamzy@gmail.com</a> — we respond within 30 days.</li>
+</ul>
+
+<h2>Sharing</h2>
+<p>We share data only with the processors that make the service work: Meta (Instagram API), Google (Firebase), and Anthropic (AI processing). No other third parties. We may disclose data if legally required.</p>
+
+<h2>Security</h2>
+<p>Access tokens are stored server-side and never exposed to other users; all traffic is encrypted in transit (HTTPS); Firestore security rules restrict every user's data to their own account.</p>
+
+<h2>Children</h2>
+<p>The service targets business use and is not directed at children under 13 (or the equivalent minimum age in your jurisdiction).</p>
+
+<h2>Changes</h2>
+<p>We will post updates to this page and update the effective date above.</p>
+
+<h2>Contact</h2>
+<p>Ideal Intelligence · Muscat, Oman · <a href="mailto:nalhamzy@gmail.com">nalhamzy@gmail.com</a></p>
+
+<footer>© 2026 Ideal Intelligence · <a href="index.html">Home</a> · <a href="support.html">Support</a></footer>
+</div>
+</body>
+</html>

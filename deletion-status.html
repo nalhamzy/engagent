@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Deletion Status — Engagent</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo">⚡</div>
+  <div><h1>Data Deletion Status</h1><p style="font-size:13px">Engagent</p></div>
+</header>
+<nav><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
+
+<div class="card">
+  <p id="msg">Checking your deletion request…</p>
+</div>
+
+<p>Deletion requests received from Meta are processed automatically and permanently remove your Instagram connection, posts, comments, Business Brain and activity data from Engagent. If you have any questions, contact <a href="mailto:nalhamzy@gmail.com">nalhamzy@gmail.com</a> and include your confirmation code.</p>
+
+<script>
+  var code = new URLSearchParams(location.search).get('code');
+  var el = document.getElementById('msg');
+  if (code) {
+    el.innerHTML = 'Deletion request <code>' + code.replace(/[^A-Za-z0-9_-]/g,'') +
+      '</code> has been received and processed. All data associated with your account has been permanently deleted from Engagent.';
+  } else {
+    el.textContent = 'No confirmation code provided. If you removed Engagent from your Instagram settings, your data deletion was processed automatically.';
+  }
+</script>
+
+<footer>© 2026 Ideal Intelligence · <a href="privacy.html">Privacy Policy</a></footer>
+</div>
+</body>
+</html>
