@@ -10,7 +10,7 @@
 <div class="wrap">
 <header>
   <div class="logo">⚡</div>
-  <div><h1>Privacy Policy</h1><p style="font-size:13px">Engagent · Effective 2026-07-09</p></div>
+  <div><h1>Privacy Policy</h1><p style="font-size:13px">Engagent · Effective 2026-09-07</p></div>
 </header>
 <nav><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="data-deletion.html">Delete Data</a></nav>
 
@@ -20,18 +20,20 @@
 
 <h2>Data we collect</h2>
 <ul>
-  <li><strong>App account</strong> — an anonymous or email-based Firebase account identifier; your email address if you create an account.</li>
+  <li><strong>App account</strong> — a Firebase account identifier created for you when you sign in. Instagram is the only sign-in method; we do not ask for an email address or a password.</li>
   <li><strong>Instagram connection</strong> — your Instagram professional account ID, username, and account type, plus an access token granted through Meta's official login (stored server-side, never on your device or shared).</li>
   <li><strong>Posts &amp; metrics</strong> — media captions, thumbnails, and performance metrics (reach, likes, comments, saves, shares) fetched from the Instagram API.</li>
   <li><strong>Comments</strong> — comment text, commenter usernames and timestamps on your posts, plus the categories, sentiment and reply drafts our system generates for them.</li>
+  <li><strong>Direct messages</strong> — when you grant messaging access, the text, sender ID and timestamp of Instagram direct messages sent <em>to</em> your account, plus any reply the agent drafts or sends. We only read conversations in your account's inbox; we never read messages in any account you do not connect.</li>
   <li><strong>Business Brain</strong> — the business facts you enter (location, hours, prices, FAQ, brand voice) used to ground AI replies.</li>
-  <li><strong>Activity log</strong> — a record of actions taken in your account (analyzed, replied, hidden, escalated) for your own audit trail.</li>
+  <li><strong>Activity log</strong> — a record of actions taken in your account (analyzed, replied, hidden, deleted, escalated, messaged) for your own audit trail.</li>
 </ul>
 
 <h2>How we use it</h2>
 <ul>
   <li>To categorize comments, generate insight reports, and draft or send replies you configure — the core service.</li>
-  <li>Comment text and your Business Brain content are processed by <strong>Anthropic's Claude API</strong> to generate classifications, drafts and reports. Anthropic does not train on this API data.</li>
+  <li>To read direct messages sent to your account and draft or send a reply on your behalf. Messaging is <strong>reactive only</strong>: the agent replies inside Instagram's 24-hour messaging window to people who messaged you first, and to someone who commented on your post (a one-time private reply). It never starts a conversation, never sends marketing or promotional messages, and never messages anyone who has not contacted you.</li>
+  <li>Comment text (including the commenter's Instagram username), direct-message text and your Business Brain content are sent to a large-language-model provider to generate classifications, drafts and reports. We use <strong>Alibaba Cloud's Qwen API</strong> (DashScope International) as the primary provider and <strong>Anthropic's Claude API</strong> as a fallback. Both are used under business/API terms under which the provider does not train its models on this data. We send only the text needed for the task; we do not send your access token.</li>
   <li>Data is stored in <strong>Google Firebase</strong> (Firestore / Cloud Functions, us-central1).</li>
   <li>We use Firebase Analytics and Crashlytics for app stability and aggregate usage. We do <strong>not</strong> sell your data or use it for advertising.</li>
 </ul>
@@ -39,16 +41,27 @@
 <h2>Data retention &amp; deletion</h2>
 <ul>
   <li>Data is retained while your account is connected.</li>
-  <li><strong>In-app deletion:</strong> Settings → Delete Account permanently removes your connection, posts, comments, Business Brain, activity log and tokens.</li>
+  <li><strong>In-app deletion:</strong> Settings → Delete Account permanently removes your connection, posts, comments, direct messages, Business Brain, activity log and tokens.</li>
   <li><strong>Meta data-deletion callback:</strong> removing the app from your Instagram settings triggers Meta's data-deletion request, which we honor automatically. Status of a deletion request can be checked at <a href="deletion-status.html">deletion-status</a> using the confirmation code returned to Meta.</li>
   <li><strong>By email:</strong> <a href="mailto:nalhamzy@gmail.com">nalhamzy@gmail.com</a> — we respond within 30 days.</li>
 </ul>
 
 <h2>Sharing</h2>
-<p>We share data only with the processors that make the service work: Meta (Instagram API), Google (Firebase), and Anthropic (AI processing). No other third parties. We may disclose data if legally required.</p>
+<p>We share data only with the processors that make the service work:</p>
+<ul>
+  <li><strong>Google LLC</strong> — Firebase Authentication, Firestore, Cloud Functions, Crashlytics and Analytics (data stored in the United States, region us-central1). Hosts everything above.</li>
+  <li><strong>Alibaba Cloud (Qwen / DashScope International)</strong> — AI processing of comment text, direct-message text and Business Brain content.</li>
+  <li><strong>Anthropic PBC</strong> — the same AI processing, used as a fallback when the primary provider is unavailable.</li>
+  <li><strong>RevenueCat, Inc.</strong> — subscription and purchase status. RevenueCat receives an account identifier derived from your Instagram account ID, and no comment or message content.</li>
+  <li><strong>Meta Platforms</strong> — the Instagram API itself, the source of the data.</li>
+</ul>
+<p>No other third parties. We do not sell your data. We may disclose data if legally required — see <a href="#authorities">Government and legal requests</a>.</p>
 
 <h2>Security</h2>
 <p>Access tokens are stored server-side and never exposed to other users; all traffic is encrypted in transit (HTTPS); Firestore security rules restrict every user's data to their own account.</p>
+
+<h2 id="authorities">Government and legal requests</h2>
+<p>If a public authority asks us for user data, we review each request for legal validity before responding, we disclose only the minimum data the request actually requires, we challenge requests we consider unlawful or overbroad, and we keep a written record of every request and our response. We will notify the affected account holder unless we are legally prohibited from doing so. As of the effective date above we have never received such a request.</p>
 
 <h2>Children</h2>
 <p>The service targets business use and is not directed at children under 13 (or the equivalent minimum age in your jurisdiction).</p>
