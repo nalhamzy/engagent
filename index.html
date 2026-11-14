@@ -3,39 +3,208 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Engagent — AI comment and message engagement for Instagram Business</title>
-<meta name="description" content="Engagent is an AI agent that analyzes your Instagram posts, triages comments and direct messages by intent, and drafts grounded replies — Arabic-first, built by Ideal Intelligence.">
-<link rel="stylesheet" href="style.css">
+<title>Engagent — find the customers hiding in your Instagram comments</title>
+<meta name="description" content="Engagent reads every comment and DM on your Instagram business account, spots the buyers, drafts the reply in your voice and tracks each lead until it is won or lost. Start with a comment audit of your last 25 posts.">
+<meta name="apple-itunes-app" content="app-id=6824032754">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://engagent.idealailabs.com/">
+<meta property="og:title" content="Engagent — find the customers hiding in your Instagram comments">
+<meta property="og:description" content="Reads every comment and DM, spots the buyers, drafts the reply in your voice, and tracks each lead to won or lost.">
+<meta property="og:image" content="https://engagent.idealailabs.com/assets/scan_report.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/icon-64.png">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<style>
+:root{--bg:#07080d;--card:#12142a;--card2:#191c36;--ink:#f4f5fb;--muted:#a3a8c3;--line:#262a4d;--primary:#6d5ef6;--pink:#ec5aa0;--ok:#34d399}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:#a79dff;text-decoration:none}
+a:hover{text-decoration:underline}
+img,video{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.glow{background:radial-gradient(900px 500px at 15% -10%,rgba(109,94,246,.35),transparent 60%),radial-gradient(700px 420px at 95% 10%,rgba(236,90,160,.18),transparent 60%)}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:var(--ink)}
+.brand img{width:36px;height:36px;border-radius:10px}
+nav{display:flex;gap:18px;font-size:14px;flex-wrap:wrap}
+nav a{color:var(--muted)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:36px 0 64px}
+h1{font-size:clamp(32px,5.4vw,54px);line-height:1.08;font-weight:800;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(90deg,#8f83ff,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:18px;color:var(--muted);margin:18px 0 26px;max-width:34em}
+.stores{display:flex;gap:12px;flex-wrap:wrap}
+.store{display:inline-flex;flex-direction:column;justify-content:center;min-height:56px;min-width:176px;padding:8px 20px;border-radius:14px;font-weight:700;font-size:17px;line-height:1.15;color:#fff;background:linear-gradient(120deg,var(--primary),#a15cf0 60%,var(--pink));box-shadow:0 10px 30px -12px rgba(109,94,246,.8)}
+.store.alt{background:var(--card2);border:1px solid var(--line);box-shadow:none}
+.store small{font-weight:500;font-size:11px;opacity:.85;letter-spacing:.02em}
+.store:hover{text-decoration:none;filter:brightness(1.08)}
+.fine{font-size:13px;color:var(--muted);margin-top:16px}
+.fine b{color:var(--ink);font-weight:600}
+.shot{border-radius:26px;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(109,94,246,.7);margin:0 auto;width:min(100%,360px)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;font-weight:800;letter-spacing:-.01em;margin-bottom:10px}
+.sub{color:var(--muted);font-size:17px;max-width:44em;margin-bottom:28px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.step::before{counter-increment:s;content:counter(s);display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:rgba(109,94,246,.25);color:#c9c3ff;font-weight:800;margin-bottom:12px}
+.step h3,.feat h3{font-size:18px;margin-bottom:6px}
+.step p,.feat p,.faq p,li{color:var(--muted);font-size:15px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin:48px 0}
+.feat:nth-of-type(even) .txt{order:2}
+.feat ul{margin:12px 0 0 20px}
+.feat li{margin:6px 0}
+.video{max-width:340px;margin:0 auto;border-radius:22px;border:1px solid var(--line);overflow:hidden;background:#000}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card ul{margin-left:20px}
+.card li{margin:6px 0}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tag{display:inline-block;font-size:12px;font-weight:700;color:var(--ok);border:1px solid rgba(52,211,153,.4);background:rgba(52,211,153,.1);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:16px 32px}
+.faq h3{font-size:16px;margin-bottom:4px}
+.end{text-align:center}
+.end .stores{justify-content:center;margin-top:22px}
+#terms h3{font-size:15px;margin:18px 0 4px}
+#terms p{color:var(--muted);font-size:14px}
+footer{padding:28px 0 48px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer a{margin-right:14px}
+@media(max-width:820px){
+  .hero,.feat,.two,.faq{grid-template-columns:1fr}
+  .steps,.plans{grid-template-columns:1fr}
+  .feat:nth-of-type(even) .txt{order:0}
+  .hero{padding-top:12px;gap:28px}
+  nav{display:none}
+}
+</style>
 </head>
 <body>
+<div class="glow">
 <div class="wrap">
 <header>
-  <div class="logo">⚡</div>
-  <div>
-    <h1>Engagent</h1>
-    <p style="font-size:13px">by Ideal Intelligence</p>
-  </div>
+  <a class="brand" href="/"><img src="assets/icon-64.png" alt="" width="36" height="36">Engagent</a>
+  <nav><a href="#audit">Comment audit</a><a href="#features">What it does</a><a href="#control">Control</a><a href="#plans">Plans</a><a href="support.html">Support</a></nav>
 </header>
 
-<nav><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="data-deletion.html">Delete Data</a><a href="#terms">Terms</a></nav>
-
-<div class="card">
-  <span class="badge">AI Comment &amp; Message Engagement Agent</span>
-  <h2 style="margin-top:0">Run the engagement layer of your Instagram Business account</h2>
-  <p>Engagent connects to your Instagram professional account through Meta's official API, analyzes each post's performance, sorts every comment and direct message by intent — hot leads, buying questions, unhappy customers, fans, business inquiries, spam — and drafts replies grounded in your own business facts. Arabic-first, English built in.</p>
+<div class="hero">
+  <div>
+    <h1>Find the customers hiding in your <em>Instagram comments</em>.</h1>
+    <p class="lede">&ldquo;How much?&rdquo; &ldquo;Is this available?&rdquo; &ldquo;Do you deliver?&rdquo; Those comments are buyers, and they get buried under emojis and spam. Engagent reads every comment and DM, spots the buyers, drafts the reply in your voice, and tracks each lead until it is won or lost.</p>
+    <div class="stores">
+      <a class="store" data-store="ios" href="https://apps.apple.com/app/id6824032754"><small>Download on the</small>App Store</a>
+      <a class="store alt" data-store="play" href="https://play.google.com/store/apps/details?id=com.idealai.engagent"><small>Get it on</small>Google Play</a>
+    </div>
+    <p class="fine"><b>14 days of every Pro feature, no payment details.</b> Needs an Instagram Business or Creator account. Connects through Instagram&rsquo;s official sign-in and never asks for your password.</p>
+  </div>
+  <img class="shot" src="assets/scan_report.jpg" width="540" height="1000" alt="An Engagent Deep Scan report: a summary of the week, counts of posts, comments, leads and pending replies, and the mix of comment types.">
+</div>
+</div>
 </div>
 
-<h2>What it does</h2>
-<ul>
-  <li><strong>Analyze Now</strong> — one tap turns a post's metrics and comments into an actionable insight report.</li>
-  <li><strong>Comment inbox by intent</strong> — know which comments make you money and which waste your time.</li>
-  <li><strong>Direct-message inbox</strong> — the same triage and grounded drafting for DMs. Replies are reactive only: the agent answers people who messaged you first, inside Instagram's 24-hour window. It never sends cold or promotional messages.</li>
-  <li><strong>Grounded replies</strong> — the agent answers from your Business Brain (location, prices, hours, FAQ), never invented facts.</li>
-  <li><strong>You stay in control</strong> — Suggest mode by default, an Approvals queue for sensitive conversations, and a full activity log of every action.</li>
-</ul>
+<div class="wrap">
 
-<h2 id="terms">Terms of Service</h2>
-<div class="card">
+<section id="audit">
+  <h2>Start with a comment audit of your last 25 posts</h2>
+  <p class="sub">Before you change anything about how you reply, see what is already sitting in your comments. It takes a few minutes and you do not have to turn any automation on.</p>
+  <div class="steps">
+    <div class="step"><h3>Connect your account</h3><p>Sign in through Instagram&rsquo;s own screen. Engagent can read and reply to comments and messages. It cannot publish posts.</p></div>
+    <div class="step"><h3>Run Deep Scan</h3><p>One tap reads your last 25 posts and their comments in a single pass and sorts every comment by what the person wants.</p></div>
+    <div class="step"><h3>Read the report</h3><p>Hot leads with an estimated value, buying questions still waiting, unhappy customers, the questions people keep repeating, and which posts need a reply pass. Download it as CSV.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>See it in one short video</h2>
+  <p class="sub">What Engagent does with a busy comment section, start to finish.</p>
+  <div class="video"><video id="ad" controls playsinline preload="none" poster="assets/poster.jpg" width="540" height="960"><source src="assets/engagent.mp4" type="video/mp4"></video></div>
+</section>
+
+<section id="features">
+  <h2>What it does</h2>
+  <p class="sub">Three jobs, in the order a shop owner needs them.</p>
+
+  <div class="feat">
+    <div class="txt">
+      <h3>Sorts every comment by intent</h3>
+      <p>Hot leads, buying questions, unhappy customers, fans, business inquiries and spam, separated as they arrive, so the comments that are worth money are never under the ones that are not.</p>
+      <ul>
+        <li>Replies drafted in your business voice, from the facts you give it: hours, products, prices, FAQs.</li>
+        <li>Reply to a whole group at once, post by post.</li>
+        <li>Hide or delete spam in one pass.</li>
+      </ul>
+    </div>
+    <img class="shot" loading="lazy" src="assets/comments.jpg" width="540" height="1000" alt="The Comments screen: a chart of comment types and bulk actions for each type.">
+  </div>
+
+  <div class="feat">
+    <div class="txt">
+      <h3>Tracks each lead to won or lost</h3>
+      <p>Every buying signal becomes a lead you can move: new, contacted, won or lost. Add an estimated value, notes and a follow-up date, and get a weekly opportunity report.</p>
+      <ul>
+        <li>Overdue follow-ups are flagged.</li>
+        <li>The week at a glance: detected, contacted, won, lost, and the value in play.</li>
+      </ul>
+    </div>
+    <img class="shot" loading="lazy" src="assets/leads.jpg" width="540" height="810" alt="The Leads screen: this week's leads by stage, and a lead card with buttons for contacted, won and lost.">
+  </div>
+
+  <div class="two">
+    <div class="card"><h3>Comment to DM</h3><p>Pick a keyword. When someone comments it, Engagent replies publicly and can also send them a private message. A Pro feature.</p></div>
+    <div class="card"><h3>A direct-message inbox</h3><p>The same sorting and drafted replies for DMs, with your own auto-reply rules. It answers people who messaged you first and never sends cold messages.</p></div>
+    <div class="card"><h3>Jasmine, your assistant</h3><p>Talk or type to ask what needs you today, and listen to a daily briefing.</p></div>
+    <div class="card"><h3>English and Arabic</h3><p>The whole app, and the replies it drafts, work in both.</p></div>
+  </div>
+</section>
+
+<section id="control">
+  <h2>You stay in control</h2>
+  <p class="sub">An assistant that replies under your name has to be predictable. These are fixed rules, not settings you have to find.</p>
+  <div class="two">
+    <div class="card"><h3>You choose how much runs alone</h3><ul>
+      <li><b>Manual</b>: it drafts, you send.</li>
+      <li><b>Assisted</b>: it sends replies to safe comments, such as buying questions and fans, and asks you first about anything sensitive.</li>
+      <li><b>Autopilot</b>: it also answers business inquiries, inside the limits you set.</li>
+    </ul></div>
+    <div class="card"><h3>What it will never do on its own</h3><ul>
+      <li>Answer a hot lead or an unhappy customer automatically.</li>
+      <li>Send a reply it is not sure about. Those wait for your approval.</li>
+      <li>Reply outside your business hours, past your daily limit, or on a comment with one of your escalation keywords.</li>
+    </ul></div>
+  </div>
+  <p class="fine" style="margin-top:18px">The Safety Center in the app shows what Engagent will and will not do, and an activity log records every action it takes.</p>
+</section>
+
+<section id="plans">
+  <h2>Plans</h2>
+  <p class="sub">Prices are shown in the app, in your currency, by the App Store or Google Play.</p>
+  <div class="plans">
+    <div class="card"><span class="tag">Where everyone starts</span><h3>14 days of Pro</h3><p>Every Pro feature with lower monthly limits. No payment details needed. After it ends you move to Starter unless you choose a plan.</p></div>
+    <div class="card"><h3>Starter</h3><p>Stays free. Engagent keeps sorting your comments and drafting replies for you to send: 30 AI replies and 10 scans a month.</p></div>
+    <div class="card"><h3>Pro and Business</h3><p>Pro adds Autopilot, comment-to-DM triggers and automatic DM replies, with 1,500 AI replies and 1,500 scans a month. Business has everything in Pro with 5,000 of each.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Questions</h2>
+  <div class="faq" style="margin-top:22px">
+    <div><h3>Do I need a special Instagram account?</h3><p>A Business or Creator account. Switching from a personal account is free and takes a minute in Instagram&rsquo;s settings; the app walks you through it.</p></div>
+    <div><h3>Do you get my password?</h3><p>No. You sign in on Instagram&rsquo;s own screen and Instagram gives Engagent limited access through its official API. You can remove that access from Instagram at any time.</p></div>
+    <div><h3>Will it post or change my account?</h3><p>No. It can read and reply to comments and messages, and hide or delete comments. Spam is hidden automatically only if you switch that on. It cannot publish posts.</p></div>
+    <div><h3>What happens to my data?</h3><p>See the <a href="privacy.html">privacy policy</a>. You can delete your account and data from inside the app, or from the <a href="data-deletion.html">data deletion page</a>.</p></div>
+  </div>
+</section>
+
+<section class="end">
+  <h2>See what is in your comments</h2>
+  <p class="sub" style="margin:0 auto">Run the audit on your last 25 posts. If nothing in the report is worth acting on, you have lost a few minutes.</p>
+  <div class="stores">
+    <a class="store" data-store="ios" href="https://apps.apple.com/app/id6824032754"><small>Download on the</small>App Store</a>
+    <a class="store alt" data-store="play" href="https://play.google.com/store/apps/details?id=com.idealai.engagent"><small>Get it on</small>Google Play</a>
+  </div>
+</section>
+
+<section id="terms">
+  <h2>Terms of Service</h2>
   <p><strong>Effective 2026-07-09.</strong> By using Engagent you agree to these terms.</p>
   <h3>1. Service</h3>
   <p>Engagent provides analysis and reply assistance for comments and direct messages on Instagram professional accounts, using Meta's official Instagram Platform API. A Business or Creator account is required. Messaging is reactive only and subject to Instagram's 24-hour messaging window.</p>
@@ -52,9 +221,39 @@
   <p>The service is provided "as is" without warranties. To the maximum extent permitted by law, Ideal Intelligence is not liable for indirect or consequential damages arising from use of the service.</p>
   <h3>7. Contact</h3>
   <p>Questions: <a href="mailto:nalhamzy@gmail.com">nalhamzy@gmail.com</a></p>
+</section>
+
+<footer>
+  <p><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="data-deletion.html">Delete Data</a><a href="#terms">Terms</a></p>
+  <p style="margin-top:10px">© 2026 Ideal Intelligence · Muscat, Oman. Engagent is not affiliated with, endorsed by or sponsored by Meta Platforms, Inc. Instagram is a trademark of Meta Platforms, Inc.</p>
+</footer>
 </div>
 
-<footer>© 2026 Ideal Intelligence · Muscat, Oman · <a href="privacy.html">Privacy Policy</a> · <a href="support.html">Support</a><a href="data-deletion.html">Delete Data</a></footer>
-</div>
+<script>
+// Anonymous daily counts only: page views, store taps and video plays. No
+// cookie, no identifier, nothing about who you are (see privacy.html).
+(function () {
+  var URL_ = 'https://us-central1-rhyme-aa29b.cloudfunctions.net/studioEventsIngest';
+  var ok = /^[A-Za-z0-9_.-]{1,32}$/;
+  var ref = (new URLSearchParams(location.search)).get('ref') || '';
+  function send(name, props) {
+    // Count the real site only, never a local preview or a copy elsewhere.
+    if (location.hostname !== 'engagent.idealailabs.com') return;
+    try {
+      props = props || {};
+      if (ok.test(ref)) props.ref = ref;
+      var body = JSON.stringify({ app: 'engagent', event: name, props: props,
+        app_version: 'web', platform: 'web', locale: navigator.language || 'en' });
+      if (navigator.sendBeacon) navigator.sendBeacon(URL_, new Blob([body], { type: 'text/plain' }));
+    } catch (e) {}
+  }
+  send('web_view');
+  document.querySelectorAll('a[data-store]').forEach(function (a) {
+    a.addEventListener('click', function () { send('web_store_click', { store: a.getAttribute('data-store') }); });
+  });
+  var v = document.getElementById('ad'), played = false;
+  if (v) v.addEventListener('play', function () { if (!played) { played = true; send('web_video_play'); } });
+})();
+</script>
 </body>
 </html>
